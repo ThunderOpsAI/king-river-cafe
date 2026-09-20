@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Lato } from "next/font/google";
 import "./globals.css";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -29,11 +30,11 @@ export default function RootLayout({
       lang="en"
       className={`${playfair.variable} ${lato.variable} h-full antialiased font-sans scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col bg-[#fbfaf8] text-neutral-800 selection:bg-stone-800 selection:text-white">
+      <body className="min-h-full flex flex-col bg-white text-neutral-800 selection:bg-stone-800 selection:text-white">
         {/* Navigation Header */}
-        <header className="sticky top-0 z-50 bg-[#fbfaf8]/95 backdrop-blur-md border-b border-stone-200/80 shadow-sm">
+        <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200/80 shadow-sm">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-            <a href="#" className="flex flex-col group">
+            <a href="#" className="flex flex-col group transition-all duration-300">
               <span className="font-serif text-2xl sm:text-3xl text-stone-900 tracking-wide font-normal group-hover:text-stone-600 transition-colors">
                 King River Cafe
               </span>
@@ -44,18 +45,19 @@ export default function RootLayout({
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-7 text-xs uppercase tracking-widest font-medium text-stone-600">
-              <a href="#story" className="hover:text-stone-900 transition-colors">Our Story</a>
-              <a href="#menu" className="hover:text-stone-900 transition-colors">Seasonal Menu</a>
-              <a href="#wines" className="hover:text-stone-900 transition-colors">Wine &amp; Cellar</a>
-              <a href="#reservations" className="hover:text-stone-900 transition-colors">Reserve</a>
-              <a href="#weddings" className="hover:text-stone-900 transition-colors">Weddings &amp; Events</a>
+              <a href="#story" className="hover:text-stone-900 transition-all duration-300">Our Story</a>
+              <a href="#menu" className="hover:text-stone-900 transition-all duration-300">Seasonal Menu</a>
+              <a href="#wines" className="hover:text-stone-900 transition-all duration-300">Wine &amp; Cellar</a>
+              <a href="#reservations" className="hover:text-stone-900 transition-all duration-300">Reserve</a>
+              <a href="#weddings" className="hover:text-stone-900 transition-all duration-300">Weddings &amp; Events</a>
             </nav>
 
             {/* Contact Action */}
             <div className="flex items-center gap-3">
               <a
                 href="tel:0357273461"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-stone-900 hover:bg-stone-800 text-white text-xs uppercase tracking-widest font-medium rounded-full transition-all shadow-sm"
+                aria-label="Call King River Cafe at (03) 5727 3461"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-stone-900 hover:bg-stone-800 text-white text-xs uppercase tracking-widest font-medium rounded-full transition-all duration-300 shadow-sm"
               >
                 <span>📞 (03) 5727 3461</span>
               </a>
@@ -116,7 +118,7 @@ export default function RootLayout({
               <div>
                 <h5 className="text-xs uppercase tracking-widest text-white font-bold mb-4">Contact &amp; Bookings</h5>
                 <p className="text-sm text-stone-300 mb-1">
-                  Phone: <a href="tel:0357273461" className="text-white hover:underline">(03) 5727 3461</a>
+                  Phone: <a href="tel:0357273461" aria-label="Call King River Cafe at (03) 5727 3461" className="text-white hover:underline">(03) 5727 3461</a>
                 </p>
                 <p className="text-xs text-stone-400 mb-3">
                   Email: <a href="mailto:bon@netc.net.au" className="text-stone-300 hover:underline">bon@netc.net.au</a>
@@ -134,11 +136,18 @@ export default function RootLayout({
               </div>
             </div>
 
+            {/* Small decorative divider-ornament above the copyright line */}
+            <div className="divider-ornament max-w-xs mx-auto mb-8 opacity-40" aria-hidden="true">
+              <span className="text-stone-500 text-xs font-serif">♦</span>
+            </div>
+
             <div className="pt-8 border-t border-stone-800 text-center text-xs tracking-widest uppercase text-stone-500">
               &copy; 2026 King River Cafe · Ben &amp; Judy Bonwick · All Rights Reserved
             </div>
           </div>
         </footer>
+
+        <ThemeSwitcher />
       </body>
     </html>
   );

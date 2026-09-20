@@ -12,6 +12,38 @@
   --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
 }
 
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Elegant horizontal rule */
+.divider-ornament {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.divider-ornament::before,
+.divider-ornament::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #d6d3d1, transparent);
+}
+
+/* Text gradient utility */
+.text-gradient-gold {
+  background: linear-gradient(135deg, #b45309, #d97706, #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hero text shadow for readability */
+.hero-text-shadow {
+  text-shadow: 0 2px 20px rgba(0,0,0,0.5), 0 4px 40px rgba(0,0,0,0.3);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -23,4 +55,115 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity: 0.6;
+}
+
+/* Theme 1: Rustic (Default) */
+/* Uses default stone and amber, no overrides needed */
+
+/* Theme 2: Midnight (Dark Elegance) */
+[data-theme="midnight"] {
+  --background: #0f0f0f;
+  --foreground: #fafaf9;
+  
+  --color-white: #0a0a0a;
+  --color-stone-50: #171717;
+  --color-stone-100: #262626;
+  --color-stone-200: #404040;
+  --color-stone-300: #525252;
+  --color-stone-400: #737373;
+  --color-stone-500: #a3a3a3;
+  --color-stone-600: #d4d4d4;
+  --color-stone-700: #e5e5e5;
+  --color-stone-800: #f5f5f5;
+  --color-stone-900: #fafafa;
+  --color-stone-950: #ffffff;
+}
+
+/* Theme 3: Sage & Earth */
+[data-theme="sage"] {
+  --background: #f4f5f0;
+  --foreground: #2f3e2e;
+
+  --color-white: #f4f5f0;
+  --color-stone-50: #e9ece4;
+  --color-stone-100: #dfe3d7;
+  --color-stone-200: #d1d6ce;
+  --color-stone-300: #93a38f;
+  --color-stone-400: #7c8e78;
+  --color-stone-500: #5c6b5b;
+  --color-stone-600: #4a574a;
+  --color-stone-700: #3a4539;
+  --color-stone-800: #2f3e2e;
+  --color-stone-900: #232e22;
+  --color-stone-950: #192118;
+  
+  --color-amber-200: #b5c7ad;
+  --color-amber-300: #9eb294;
+  --color-amber-400: #889d7d;
+  --color-amber-500: #718866;
+  --color-amber-600: #65795c;
+  --color-amber-700: #54654d;
+}
+
+/* Theme 4: Terracotta / Warm Tuscan */
+[data-theme="terracotta"] {
+  --background: #fff9f5;
+  --foreground: #4a2c2a;
+
+  --color-white: #fff9f5;
+  --color-stone-50: #fcede4;
+  --color-stone-100: #f6decf;
+  --color-stone-200: #ebd3c8;
+  --color-stone-300: #d4a997;
+  --color-stone-400: #bc826e;
+  --color-stone-500: #a4624e;
+  --color-stone-600: #8a4a38;
+  --color-stone-700: #703828;
+  --color-stone-800: #54281c;
+  --color-stone-900: #4a2c2a;
+  --color-stone-950: #361f1d;
+  
+  --color-amber-200: #ffbba1;
+  --color-amber-300: #ff9e7a;
+  --color-amber-400: #ed7d53;
+  --color-amber-500: #d6643a;
+  --color-amber-600: #c25934;
+  --color-amber-700: #9e4322;
+}
+
+/* Theme 5: Minimalist Monochrome */
+[data-theme="minimal"] {
+  --background: #ffffff;
+  --foreground: #000000;
+
+  --color-white: #ffffff;
+  --color-stone-50: #f7f7f7;
+  --color-stone-100: #efefef;
+  --color-stone-200: #e5e5e5;
+  --color-stone-300: #cccccc;
+  --color-stone-400: #b3b3b3;
+  --color-stone-500: #808080;
+  --color-stone-600: #666666;
+  --color-stone-700: #4d4d4d;
+  --color-stone-800: #333333;
+  --color-stone-900: #1a1a1a;
+  --color-stone-950: #000000;
+  
+  --color-amber-200: #e6e6e6;
+  --color-amber-300: #cccccc;
+  --color-amber-400: #999999;
+  --color-amber-500: #666666;
+  --color-amber-600: #333333;
+  --color-amber-700: #000000;
 }

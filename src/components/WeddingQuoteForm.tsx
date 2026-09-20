@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useTransition } from 'react';
+import { submitWeddingQuote } from '../app/actions/contact';
 
 export default function WeddingQuoteForm() {
   const [formData, setFormData] = useState({
@@ -15,6 +16,7 @@ export default function WeddingQuoteForm() {
     eventDetails: ''
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isPending, startTransition] = useTransition();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -22,7 +24,10 @@ export default function WeddingQuoteForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    startTransition(async () => {
+      await submitWeddingQuote(formData);
+      setSubmitted(true);
+    });
   };
 
   if (submitted) {
@@ -210,9 +215,10 @@ export default function WeddingQuoteForm() {
           </p>
           <button
             type="submit"
-            className="w-full sm:w-auto px-8 py-3.5 bg-stone-900 text-white text-xs uppercase tracking-widest font-semibold hover:bg-stone-800 transition-colors rounded-full shadow"
+            disabled={isPending}
+            className="w-full sm:w-auto px-8 py-3.5 bg-stone-900 text-white text-xs uppercase tracking-widest font-semibold hover:bg-stone-800 disabled:opacity-50 transition-all duration-300 rounded-full shadow hover:shadow-lg hover:-translate-y-0.5"
           >
-            Submit Event Quote Request
+            {isPending ? 'Sending Inquiry...' : 'Submit Event Quote Request'}
           </button>
         </div>
       </form>
