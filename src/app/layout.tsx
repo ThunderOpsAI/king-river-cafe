@@ -45,11 +45,11 @@ export default function RootLayout({
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-7 text-xs uppercase tracking-widest font-medium text-stone-600">
-              <a href="#story" className="hover:text-stone-900 transition-all duration-300">Our Story</a>
-              <a href="#menu" className="hover:text-stone-900 transition-all duration-300">Seasonal Menu</a>
-              <a href="#wines" className="hover:text-stone-900 transition-all duration-300">Wine &amp; Cellar</a>
-              <a href="#reservations" className="hover:text-stone-900 transition-all duration-300">Reserve</a>
-              <a href="#weddings" className="hover:text-stone-900 transition-all duration-300">Weddings &amp; Events</a>
+              <a href="/#story" className="hover:text-stone-900 transition-all duration-300">Our Story</a>
+              <a href="/menu" className="hover:text-stone-900 transition-all duration-300">Seasonal Menu</a>
+              <a href="/menu#wines" className="hover:text-stone-900 transition-all duration-300">Wine &amp; Cellar</a>
+              <a href="/reserve" className="hover:text-stone-900 transition-all duration-300">Reserve</a>
+              <a href="/reserve#weddings" className="hover:text-stone-900 transition-all duration-300">Weddings &amp; Events</a>
             </nav>
 
             {/* Contact Action */}
