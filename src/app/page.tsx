@@ -127,22 +127,6 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* Who We Are Block */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-              <div className="lg:col-span-5 order-2 lg:order-1">
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-stone-300 bg-stone-100">
-                  <img
-                    src="https://images.unsplash.com/photo-1581579186913-46ea3db71661?auto=format&fit=crop&w=1200&q=80"
-                    alt="Ben and Judy Bonwick"
-                    className="w-full h-[480px] object-cover hover:scale-105 transition-transform duration-700 object-center mix-blend-multiply"
-                  />
-                  <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-stone-950/90 via-stone-900/60 to-transparent p-6 text-white">
-                    <p className="font-serif italic text-sm text-stone-200 drop-shadow-md">
-                      &ldquo;If you love people and enjoy seeing the impact you have on their lives, then it&apos;s worth every challenge.&rdquo; — Judy Bonwick
-                    </p>
-                  </div>
                 </div>
               </div>
               
